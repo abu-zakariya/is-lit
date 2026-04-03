@@ -1,0 +1,23 @@
+---
+import { valuePoints } from "@/data/site";
+---
+
+<section class="section section-muted" id="warum">
+  <div class="container">
+    <div class="section-heading narrow">
+      <p class="eyebrow">Warum islamischeliteratur.de</p>
+      <h2>Ein Arbeitsansatz, der Sorgfalt sichtbar macht.</h2>
+    </div>
+
+    <div class="value-grid">
+      {
+        valuePoints.map((item) => (
+          <article class="value-item">
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

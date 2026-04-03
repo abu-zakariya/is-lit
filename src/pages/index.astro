@@ -1,0 +1,22 @@
+---
+import About from "@/components/About.astro";
+import ContactCTA from "@/components/ContactCTA.astro";
+import Footer from "@/components/Footer.astro";
+import Header from "@/components/Header.astro";
+import Hero from "@/components/Hero.astro";
+import Services from "@/components/Services.astro";
+import WhyChoose from "@/components/WhyChoose.astro";
+import Layout from "@/layouts/Layout.astro";
+---
+
+<Layout path="/">
+  <Header />
+  <main id="main-content">
+    <Hero />
+    <Services />
+    <WhyChoose />
+    <About />
+    <ContactCTA />
+  </main>
+  <Footer />
+</Layout>

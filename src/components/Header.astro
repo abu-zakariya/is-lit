@@ -1,0 +1,29 @@
+---
+import { navigation } from "@/data/site";
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="#top" aria-label="Zur Startseite">
+      <span class="brand-mark" aria-hidden="true">
+        <img src="/logo-il-round-144.png" alt="" width="72" height="72" />
+      </span>
+      <div class="brand-copy">
+        <span class="brand-kicker">islamische</span>
+        <span class="brand-name">Literatur</span>
+      </div>
+    </a>
+
+    <nav class="nav" aria-label="Hauptnavigation">
+      <ul>
+        {
+          navigation.map((item) => (
+            <li>
+              <a href={item.href}>{item.label}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+</header>

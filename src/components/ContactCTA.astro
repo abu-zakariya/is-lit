@@ -1,0 +1,25 @@
+---
+import { siteConfig } from "@/data/site";
+---
+
+<section class="section" id="kontakt">
+  <div class="container">
+    <div class="contact-panel">
+      <div class="contact-copy">
+        <p class="eyebrow">Kontakt</p>
+        <h2>Für Anfragen zu Übersetzungen, Recherchen und Textprojekten.</h2>
+        <p>
+          Erste Anliegen können kurz per E-Mail geschildert werden. So lässt sich klären,
+          welche Anforderungen bestehen und in welchem Rahmen eine Zusammenarbeit sinnvoll ist.
+        </p>
+      </div>
+
+      <div class="contact-actions">
+        <a class="contact-mail" href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
+        <a class="button button-primary" href={`mailto:${siteConfig.email}`}>
+          Kontakt aufnehmen
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

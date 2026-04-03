@@ -1,0 +1,38 @@
+---
+import { navigation, siteConfig } from "@/data/site";
+
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <span class="brand-mark footer-mark" aria-hidden="true">
+        <img src="/logo-il-round-168.png" alt="" width="84" height="84" />
+      </span>
+      <div>
+        <p class="footer-title">{siteConfig.name}</p>
+        <p class="footer-text">
+          Übersetzungen, Recherchen und Texte mit Schwerpunkt auf islamischer Literatur und
+          fachlich seriösen Inhalten.
+        </p>
+      </div>
+    </div>
+
+    <nav aria-label="Footer Navigation">
+      <ul class="footer-nav">
+        {
+          navigation.map((item) => (
+            <li>
+              <a href={item.href}>{item.label}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>&copy; {year} {siteConfig.author}. Alle Rechte vorbehalten.</p>
+  </div>
+</footer>

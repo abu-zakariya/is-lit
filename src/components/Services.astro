@@ -1,0 +1,27 @@
+---
+import { services } from "@/data/site";
+---
+
+<section class="section" id="leistungen">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">Leistungen</p>
+      <h2>Sprachdienstleistungen und fachliche Aufbereitung mit ruhiger, klarer Handschrift.</h2>
+      <p>
+        Das Angebot richtet sich an Projekte, bei denen Genauigkeit, sprachliche Würde und
+        inhaltliche Verlässlichkeit im Vordergrund stehen.
+      </p>
+    </div>
+
+    <div class="card-grid">
+      {
+        services.map((service) => (
+          <article class="card service-card">
+            <h3>{service.title}</h3>
+            <p>{service.description}</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
