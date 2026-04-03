@@ -1,0 +1,61 @@
+---
+import Footer from "@/components/Footer.astro";
+import Header from "@/components/Header.astro";
+import { siteConfig } from "@/data/site";
+import Layout from "@/layouts/Layout.astro";
+---
+
+<Layout
+  title="Impressum | islamischeliteratur.de"
+  description="Impressum von islamischeliteratur.de mit Angaben zum Anbieter und zur inhaltlichen Verantwortung."
+  path="/impressum"
+>
+  <Header />
+  <main id="main-content" class="section">
+    <div class="container legal-shell">
+      <div class="section-heading legal-heading">
+        <p class="eyebrow">Rechtliches</p>
+        <h1>Impressum</h1>
+      </div>
+
+      <div class="legal-card">
+        <section class="legal-section">
+          <h2>Angaben gemäß § 5 DDG</h2>
+          <p>{siteConfig.author}</p>
+          <p>Einzelunternehmer</p>
+          <p>{siteConfig.address.street}</p>
+          <p>
+            {siteConfig.address.postalCode} {siteConfig.address.city}
+          </p>
+          <p>{siteConfig.address.country}</p>
+        </section>
+
+        <section class="legal-section">
+          <h2>Kontakt</h2>
+          <p>
+            E-Mail: <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
+          </p>
+        </section>
+
+        <section class="legal-section">
+          <h2>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
+          <p>{siteConfig.author}</p>
+          <p>{siteConfig.address.street}</p>
+          <p>
+            {siteConfig.address.postalCode} {siteConfig.address.city}
+          </p>
+          <p>{siteConfig.address.country}</p>
+        </section>
+
+        <section class="legal-section">
+          <h2>Tätigkeitsbereich</h2>
+          <p>
+            Übersetzungen Arabisch <> Deutsch, Recherchen, Texterstellung sowie fachlich
+            seriöse Inhalte im Bereich islamische Literatur.
+          </p>
+        </section>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Layout>

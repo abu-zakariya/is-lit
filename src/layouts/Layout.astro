@@ -15,7 +15,7 @@ const {
 } = Astro.props;
 
 const canonicalUrl = new URL(path, siteConfig.url).toString();
-const ogImage = new URL("/logo-il.png", siteConfig.url).toString();
+const ogImage = new URL("/logo-header-footer.png", siteConfig.url).toString();
 ---
 
 <!doctype html>
@@ -28,7 +28,8 @@ const ogImage = new URL("/logo-il.png", siteConfig.url).toString();
     <meta name="author" content={siteConfig.author} />
     <meta name="robots" content="index,follow" />
     <link rel="canonical" href={canonicalUrl} />
-    <link rel="icon" type="image/png" href="/logo-il.png" />
+    <link rel="icon" type="image/png" href="/logo-header-footer.png" />
+    <link rel="apple-touch-icon" href="/logo-header-footer.png" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content={siteConfig.locale} />
     <meta property="og:site_name" content={siteConfig.name} />

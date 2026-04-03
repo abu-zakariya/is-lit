@@ -1,12 +1,15 @@
 ---
 import { navigation } from "@/data/site";
+
+const isHomePage = Astro.url.pathname === "/";
+const brandHref = isHomePage ? "#top" : "/";
 ---
 
 <header class="site-header">
   <div class="container header-inner">
-    <a class="brand" href="#top" aria-label="Zur Startseite">
+    <a class="brand" href={brandHref} aria-label="Zur Startseite">
       <span class="brand-mark" aria-hidden="true">
-        <img src="/logo-il-round-144.png" alt="" width="72" height="72" />
+        <img src="/logo-header-footer.png" alt="" width="72" height="72" />
       </span>
       <div class="brand-copy">
         <span class="brand-kicker">islamische</span>
@@ -19,7 +22,7 @@ import { navigation } from "@/data/site";
         {
           navigation.map((item) => (
             <li>
-              <a href={item.href}>{item.label}</a>
+              <a href={isHomePage ? item.href : `/${item.href}`}>{item.label}</a>
             </li>
           ))
         }

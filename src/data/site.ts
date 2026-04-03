@@ -7,7 +7,13 @@ export const siteConfig = {
   url: "https://islamischeliteratur.de",
   email: "info@islamischeliteratur.de",
   author: "Mahmoud Abdel Aziz",
-  locale: "de_DE"
+  locale: "de_DE",
+  address: {
+    street: "Pestalozziweg 3",
+    postalCode: "37081",
+    city: "Göttingen",
+    country: "Deutschland"
+  }
 };
 
 export const navigation = [

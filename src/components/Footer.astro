@@ -2,13 +2,14 @@
 import { navigation, siteConfig } from "@/data/site";
 
 const year = new Date().getFullYear();
+const isHomePage = Astro.url.pathname === "/";
 ---
 
 <footer class="site-footer">
   <div class="container footer-grid">
     <div class="footer-brand">
       <span class="brand-mark footer-mark" aria-hidden="true">
-        <img src="/logo-il-round-168.png" alt="" width="84" height="84" />
+        <img src="/logo-header-footer.png" alt="" width="84" height="84" />
       </span>
       <div>
         <p class="footer-title">{siteConfig.name}</p>
@@ -24,7 +25,7 @@ const year = new Date().getFullYear();
         {
           navigation.map((item) => (
             <li>
-              <a href={item.href}>{item.label}</a>
+              <a href={isHomePage ? item.href : `/${item.href}`}>{item.label}</a>
             </li>
           ))
         }
@@ -34,5 +35,9 @@ const year = new Date().getFullYear();
 
   <div class="container footer-bottom">
     <p>&copy; {year} {siteConfig.author}. Alle Rechte vorbehalten.</p>
+    <div class="footer-meta-links">
+      <a href="/impressum">Impressum</a>
+      <a href="/datenschutz">Datenschutz</a>
+    </div>
   </div>
 </footer>
