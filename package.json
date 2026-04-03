@@ -7,15 +7,19 @@
     "dev": "cross-env ASTRO_TELEMETRY_DISABLED=1 astro dev",
     "start": "cross-env ASTRO_TELEMETRY_DISABLED=1 astro dev",
     "build": "cross-env ASTRO_TELEMETRY_DISABLED=1 astro build",
-    "preview": "cross-env ASTRO_TELEMETRY_DISABLED=1 astro preview",
-    "check": "cross-env ASTRO_TELEMETRY_DISABLED=1 astro check"
+    "preview": "npm run build && wrangler dev",
+    "check": "cross-env ASTRO_TELEMETRY_DISABLED=1 astro check",
+    "deploy": "npm run build && wrangler deploy",
+    "cf-typegen": "wrangler types"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "12",
     "@fontsource-variable/newsreader": "^5.1.0",
     "@fontsource/source-sans-3": "^5.1.0",
     "astro": "^5.0.0"
   },
   "devDependencies": {
-    "cross-env": "^7.0.3"
+    "cross-env": "^7.0.3",
+    "wrangler": "^4.80.0"
   }
 }
