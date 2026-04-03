@@ -1,34 +1,84 @@
 # islamischeliteratur.de
 
-Statische Astro-Website fuer `islamischeliteratur.de` mit ruhigem, editorischem Design auf Basis des bereitgestellten Logos.
+Astro-Website fuer `islamischeliteratur.de` mit Deployment ueber GitHub und Cloudflare Workers Builds.
 
-## Entwicklung
+## Einfacher Ablauf
+
+Die Website ist so eingerichtet, dass jemand mit wenig Technikkenntnis im Alltag nur dies braucht:
+
+1. Codex die Aenderungen machen lassen
+2. lokal kurz pruefen
+3. committen und pushen
+4. Cloudflare baut und veroeffentlicht automatisch
+
+## Lokal starten
+
+Einmalig:
 
 ```bash
 npm install
+```
+
+Entwicklungsserver:
+
+```bash
 npm run dev
 ```
 
-## Build
+Danach laeuft die Seite lokal unter:
+
+```text
+http://localhost:4321
+```
+
+## Lokale Vorschau des Deployments
+
+Produktionsbuild:
 
 ```bash
 npm run build
 ```
 
-Der statische Output liegt anschliessend in `dist/`.
+Cloudflare-nahe Vorschau:
+
+```bash
+npm run preview
+```
 
 ## Deployment
 
-Die Website ist fuer statisches Deployment geeignet, zum Beispiel ueber GitHub und Cloudflare Pages.
+Nach einem Push auf `main` deployt Cloudflare automatisch.
+
+Typischer Ablauf:
+
+```bash
+git add .
+git commit -m "Aenderungen"
+git push
+```
+
+## Cloudflare Builds
+
+In Cloudflare Workers Builds:
 
 - Build command: `npm run build`
-- Build output directory: `dist`
-- Node version: aktuelle LTS-Version empfohlen
+- Deploy command: `npx wrangler deploy`
 
-## Struktur
+Die Domain-Anbindung erfolgt im Cloudflare-Dashboard, nicht ueber `routes` in `wrangler.jsonc`.
 
-- `src/layouts/` fuer globale Seitenstruktur und SEO-Basis
-- `src/components/` fuer modulare Seitenabschnitte
-- `src/data/site.ts` fuer Inhalte und zentrale Konfiguration
-- `src/styles/global.css` fuer Design-Tokens und globale Gestaltung
-- `public/logo-il.png` als eingebundenes Markenlogo
+## Wichtige Dateien
+
+- `src/pages/index.astro`: Startseite
+- `src/components/`: Header, Footer, Hero, Leistungen, Ueber mich, Kontakt
+- `src/pages/impressum.astro`: Impressum
+- `src/pages/datenschutz.astro`: Datenschutzerklaerung
+- `src/data/site.ts`: zentrale Inhalte, Kontakt- und Adressdaten
+- `src/styles/global.css`: Farben, Typografie, Layout
+- `public/`: Logos und statische Dateien
+- `wrangler.jsonc`: Cloudflare-Worker-Konfiguration
+
+## Hinweise
+
+- `npm run dev` ist fuer die normale lokale Bearbeitung der wichtigste Befehl.
+- Wenn Cloudflare nach einem Push nicht aktualisiert, zuerst die Build-Logs pruefen.
+- Die Live-Domain muss als aktive Zone in Cloudflare vorhanden sein, auch wenn der Registrar bei IONOS bleibt.
